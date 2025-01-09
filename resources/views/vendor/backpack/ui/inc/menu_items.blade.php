@@ -2,3 +2,6 @@
 <li class="nav-item"><a class="nav-link" href="{{ backpack_url('dashboard') }}"><i class="la la-home nav-icon"></i> {{ trans('backpack::base.dashboard') }}</a></li>
 
 <x-backpack::menu-item title="Users" icon="la la-question" :link="backpack_url('user')" />
+<x-backpack::menu-item title="Financers" icon="la la-question" :link="backpack_url('financer')" />
+<x-backpack::menu-item title="Payments" icon="la la-question" :link="backpack_url('payment')" />
+<x-backpack::menu-item title="Loans" icon="la la-question" :link="backpack_url('loan')" />

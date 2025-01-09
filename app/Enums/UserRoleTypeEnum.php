@@ -5,8 +5,8 @@ namespace App\Enums;
 enum UserRoleTypeEnum: string
 {
     case ADMIN = 'admin';
-    case USER = 'client';
-    case GUEST = 'financer';
+    case CLIENT = 'client';
+    case FINANCER = 'financer';
 
     public static function toArray()
     {

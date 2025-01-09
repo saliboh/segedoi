@@ -63,4 +63,23 @@ class User extends Authenticatable
             $this->attributes['password'] = bcrypt($value);
         }
     }
+
+    public function finances()
+    {
+        return $this->hasMany(Financer::class);
+    }
+
+    public function loans()
+    {
+        return $this->hasMany(Loan::class, 'client_id');
+    }
+
+    public function getDisplayNameAttribute()
+    {
+        $lastname = $this->last_name ?? 'No Last Name';
+        $firstname = $this->first_name ?? 'No First Name';
+
+        return "(ID-{$this->id} ) : {$lastname} - {$firstname}";
+    }
+
 }
