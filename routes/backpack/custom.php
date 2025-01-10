@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
 
 // --------------------------
 // Custom Backpack Routes
@@ -21,7 +22,8 @@ Route::group([
     Route::crud('payment', 'PaymentCrudController');
     Route::crud('loan', 'LoanCrudController');
 
-    Route::get('user/financer/search', [\App\Http\Controllers\UserController::class, 'search'])->name('user.financer.search');
+    Route::get('user/financer/search', [UserController::class, 'search'])->name('user.financer.search');
+    Route::get('images/payments/{filename}', [UserController::class, 'showImage'])->name('admin.images.payments.show');
 }); // this should be the absolute last line of this file
 
 /**

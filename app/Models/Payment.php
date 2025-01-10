@@ -22,8 +22,8 @@ class Payment extends Model
     public function setProofOfPaymentImageAttribute($value)
     {
         $attribute_name = "proof_of_payment_image";
-        $disk = "public"; // The disk to store the file
-        $destination_path = "uploads/payments"; // Directory within the disk
+        $disk = "public";
+        $destination_path = "uploads/payments";
 
         // If a file was uploaded
         if (is_file($value)) {
@@ -33,5 +33,11 @@ class Payment extends Model
             // If the field is empty, set its value to null
             $this->attributes[$attribute_name] = null;
         }
+    }
+
+    function getPaymentImageUrlAttribute()
+    {
+        $url = route('admin.images.payments.show', ['filename' => basename($this->proof_of_payment_image)]);
+        return "<a href='{$url}' target='_blank'>View</a>";
     }
 }

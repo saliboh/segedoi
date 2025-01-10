@@ -82,4 +82,9 @@ class User extends Authenticatable
         return "(ID-{$this->id} ) : {$lastname} - {$firstname}";
     }
 
+    public function isAdmin()
+    {
+        return $this->role === 'admin';
+    }
+
 }

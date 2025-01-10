@@ -43,7 +43,30 @@ class PaymentCrudController extends CrudController
      */
     protected function setupListOperation()
     {
-        CRUD::setFromDb(); // set columns from db columns.
+        CRUD::addColumn([
+            'name' => 'id',
+            'type' => 'number',
+        ]);
+
+        CRUD::addColumn([
+            'name' => 'loan.user_loan',
+            'type' => 'relationship',
+            'label' => 'Loan',
+            'entity' => 'loan',
+            'attribute' => 'user_loan',
+            'model' => Loan::class,
+        ]);
+
+        CRUD::addColumn(['name' => 'total', 'type' => 'number']);
+
+        CRUD::addColumn([
+            'name' => 'payment_image_url',
+            'label' => 'Proof of Payment',
+            'type' => 'custom_html',
+            'value' => function ($entry) {
+                return $entry->payment_image_url;
+            },
+        ]);
 
         /**
          * Columns can be defined using the fluent syntax:
@@ -79,8 +102,7 @@ class PaymentCrudController extends CrudController
             'name' => 'proof_of_payment_image',
             'type' => 'upload',
             'upload' => true,
-            'disk' => 'public', // Specify the disk where the file should be stored
-            'prefix' => 'uploads/payments/', // Specify the directory within the disk
+            'disk' => 'public',
         ]);
     }
 
