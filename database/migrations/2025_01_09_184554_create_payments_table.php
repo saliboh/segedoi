@@ -16,6 +16,7 @@ return new class extends Migration
             $table->foreignId('loan_id')->constrained()->onDelete('cascade');
             $table->decimal('total', 10, 2);
             $table->string('proof_of_payment_image');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

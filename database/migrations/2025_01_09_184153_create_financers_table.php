@@ -19,6 +19,7 @@ return new class extends Migration
             $table->integer('term_in_months');
             $table->decimal('interest', 5, 2);
             $table->decimal('total_after_interest', 10, 2);
+            $table->softDeletes();
             $table->timestamps();
         });
     }

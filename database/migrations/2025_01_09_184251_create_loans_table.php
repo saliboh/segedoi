@@ -21,6 +21,7 @@ return new class extends Migration
             $table->integer('term_in_months');
             $table->smallInteger('payment_frequency');
             $table->timestamp('fully_paid_at')->nullable();
+            $table->softDeletes();
             $table->timestamps();
         });
     }

@@ -4,10 +4,12 @@ namespace App\Models;
 
 use Backpack\CRUD\app\Models\Traits\CrudTrait;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Loan extends Model
 {
     use CrudTrait;
+    use SoftDeletes;
     protected $fillable = [
         'user_id',
         'financer_id',
