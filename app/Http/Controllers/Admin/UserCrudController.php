@@ -56,7 +56,7 @@ class UserCrudController extends CrudController
         CRUD::column('mobile');
         CRUD::column('id_url');
         CRUD::column('contract_url');
-        CRUD::column('banned_at');
+        CRUD::column('is_banned');
 
         /**
          * Columns can be defined using the fluent syntax:
@@ -142,8 +142,8 @@ class UserCrudController extends CrudController
 
         CRUD::addField([
             'name' => 'is_banned',
-            'type' => 'date',
-            'label' => 'Banned At',
+            'type' => 'checkbox',
+            'label' => 'Is banned',
         ]);
 
         /**
