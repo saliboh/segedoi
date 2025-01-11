@@ -22,7 +22,7 @@ return new class extends Migration
             $table->string('mobile')->nullable();
             $table->string('id_url')->nullable();
             $table->string('contract_url')->nullable();
-            $table->timestamp('banned_at')->nullable();
+            $table->timestamp('is_banned')->nullable();
         });
     }
 
