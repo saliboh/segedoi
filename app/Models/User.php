@@ -31,7 +31,7 @@ class User extends Authenticatable
         'mobile',
         'id_url',
         'contract_url',
-        'banned_at',
+        'is_banned',
     ];
 
     /**

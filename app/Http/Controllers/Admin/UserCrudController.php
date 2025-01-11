@@ -141,7 +141,7 @@ class UserCrudController extends CrudController
         ]);
 
         CRUD::addField([
-            'name' => 'banned_at',
+            'name' => 'is_banned',
             'type' => 'date',
             'label' => 'Banned At',
         ]);
